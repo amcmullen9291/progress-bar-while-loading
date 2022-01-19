@@ -1,0 +1,41 @@
+.loader {
+    --b: 10px; 
+    --n: 10;   
+    --g: 10deg; 
+    --c: red; 
+ 
+    width: 100px; 
+    aspect-ratio: 1;
+    border-radius: 50%;
+    padding: 1px;
+    background: conic-gradient(#0000,var(--c)) content-box;
+    -webkit-mask:
+      repeating-conic-gradient(#0000 0deg,
+         #000 1deg calc(360deg/var(--n) - var(--g) - 1deg),
+         #0000     calc(360deg/var(--n) - var(--g)) calc(360deg/var(--n))),
+      radial-gradient(farthest-side,#0000 calc(98% - var(--b)),#000 calc(100% - var(--b)));
+            mask:
+      repeating-conic-gradient(#0000 0deg,
+         #000 1deg calc(360deg/var(--n) - var(--g) - 1deg),
+         #0000     calc(360deg/var(--n) - var(--g)) calc(360deg/var(--n))),
+      radial-gradient(farthest-side,#0000 calc(98% - var(--b)),#000 calc(100% - var(--b)));
+    -webkit-mask-composite: destination-in;
+            mask-composite: intersect;
+    animation: load var(--s) infinite steps(var(--n));
+  }
+
+
+  @keyframes load {to{transform: rotate(1turn)}}
+
+#loader4{
+    --b: 20px;
+    --c: #000;
+    width: 100px;
+    --n: 15;
+    --g: 7deg;
+    --s: 1s;
+    position: absolute;
+    top: 21%;
+    left: 45%;
+}
+

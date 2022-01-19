@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import * as ReactBootStrap from 'react-bootstrap'; 
+
 const Home = () =>{
     const [ lyricsItem, setLyricsItem ] = useState(null);
     const [ loading, setLoading ] = useState(null);
@@ -22,10 +22,11 @@ const Home = () =>{
         getLyrics();
     },[]);
 
+    const progressBar = <center><div class="loader" id="loader4"></div></center>;
     return(
         <>
         <center><div>Home Page</div></center> 
-        {loading ? lyricsItem : <ReactBootStrap.Spinner animation="border" />}
+        {loading ? lyricsItem : progressBar}
         </>
     )
 }
