@@ -12,7 +12,7 @@ const Home = () =>{
                 console.log(resp);
                 setLyricsItem(resp.data.lyrics);
             })
-
+                setLoading(true);
         }catch(e){
             console.log(e)
         }
@@ -24,9 +24,8 @@ const Home = () =>{
 
     return(
         <>
-        <center><div>Home Page</div></center>
-        {<ReactBootStrap.Spinner animation="border" />}
-        <center><h5>{lyricsItem}</h5></center>
+        <center><div>Home Page</div></center> 
+        {loading ? lyricsItem : <ReactBootStrap.Spinner animation="border" />}
         </>
     )
 }
